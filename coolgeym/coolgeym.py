@@ -32,7 +32,7 @@ tkinter_canvas.create_window(-10, Hg/3, window = tkinter_button)
 # basically the button itself, we first tried to link up tkinter and turtle on the first line of this block then 
 # made a button and created a window for it inside the turtle screen
 
-power = 100
+power = 101
 
 power_Level = tkinter.Label(tkinter_canvas.master, text = "Power Level: {} ".format(power), font = ("Arial", 15))
 tkinter_canvas.create_window(-300, -350, window = power_Level)
