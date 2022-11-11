@@ -7,7 +7,7 @@ from tkinter import font
 import time
 
 window = turtle.Screen()
-#window.title("Sean gaming")
+window.title("Sean gaming")
 # setting a variable "window" and making it a screen
 
 Wd = 800
@@ -39,16 +39,17 @@ tkinter_canvas.create_window(-300, -350, window = power_Level)
 
 def power_Level_Label():
     global power
-    power = power - 1
-    power_Level.config(text = "Power Level: {} ".format(power))
+    if power >= 1:
+      power = power - 1
+      power_Level.after(2000, power_Level_Label)
+      power_Level.config(text = "Power Level: {} ".format(power))
+      power_Level.update()
 
-while power >= 1:
-  power_Level_Label()
 
-# from line 35 to line 43 is one of the hardest things i had to make that would be usually easy when using a game engine, so basically i declared a power variable that will
-# control the power to have an end game option where when your power runs out meaning 0 you lose, so basically here i made the variable global because which for some reason
-# dosent work if the variable is local(by default it is local). anyways moving on i made the label called power_level and made a function so i can just run it whenever i want to
-# then the power_level.after(5000) is basically time.sleep(5) because tkinter dosent work when you use time.sleep(). then I update the screen with the new changes being the label
+power_Level_Label()
 
+
+
+# from line 35 to line 43 is one of the hardest things i had to make that would be usually easy when using a game engine, so basically i declared a power variable and then basically in line 37 and 38 i created the actually label. then i made a function that loops itself for 1000ms and then runs again then updates itself after running, next i would make a function that 
 
 turtle.done()
